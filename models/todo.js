@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model, Op
-} = require('sequelize');
+const {Model, Op} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Todo extends Model {
     /**
@@ -9,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    static associate(models) {
+      // define association here
+    }
     static async addTask(params) {
       return await Todo.create(params);
     }
@@ -78,6 +79,7 @@ module.exports = (sequelize, DataTypes) => {
     static async markAsComplete(id) {
       // FILL IN HERE TO MARK AN ITEM AS COMPLETE
       await Todo.update(
+        { completed: true },
         {
           where: {
             id: id,
@@ -88,11 +90,11 @@ module.exports = (sequelize, DataTypes) => {
 
     displayableString() {
       let checkbox = this.completed ? "[x]" : "[ ]";
-      return `${this.id}. ${checkbox} ${this.title} ${this.dueDate}`;
-      this.dueDate === new Date().toLocaleDateString("en-CA")
-      ? ""
-      : " " + this.dueDate
-    };
+      return `${this.id}. ${checkbox} ${this.title} ${
+       this.dueDate === new Date().toLocaleDateString("en-CA")
+         ? ""
+         : " " + this.dueDate
+      }`;
   }
   Todo.init({
     title: DataTypes.STRING,
