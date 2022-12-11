@@ -1,0 +1,28 @@
+{
+  "name": "aicte_05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "addTodo.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnwesley18/LEVEL_05.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnwesley18/LEVEL_05/issues"
+  },
+  "homepage": "https://github.com/johnwesley18/LEVEL_05#readme",
+  "dependencies": {
+    "jest": "^29.3.1",
+    "minimist": "^1.2.7",
+    "pg": "^8.8.0",
+    "sequelize": "^6.26.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.5.2"
+  }
+}
